@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>@ViewBag.Title - Carepoint</title>
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/modernizr")
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+	@Scripts.Render("~/bundles/jqueryval")
+</head>
+<body>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				@Html.ActionLink("Carepoint", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+			</div>
+			<div class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+					<li>@Html.ActionLink("Home", "Index", "Home")</li>
+					<li>@Html.ActionLink("About", "About", "Home")</li>
+					<li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+				</ul>
+				@{Html.RenderAction("_LoginPartial", "Home");}
+			</div>
+		</div>
+	</div>
+	<div class="flex-fill" style="margin-top: 10px">
+		<div id="left-side" class="col-sm-2"></div>
+		<div class="col-sm-8 container">
+			@RenderBody()
+			<hr />
+			<footer>
+				<p>&copy; @DateTime.Now.Year - Carepoint</p>
+			</footer>
+		</div>
+		<div id="right-side" class="col-sm-2" style="position:static">
+			@{ Html.RenderAction("_InstantMessanger", "Home");}
+			
+
+		</div>
+	</div>
+	@Scripts.Render("/Scripts/MyScripts/Site.js")
+	<link href="~/Content/My CSS/Bendo.css" rel="stylesheet" />
+	<script src="~/Scripts/MyScripts/Bendo.js"></script>
+	<script src="~/Scripts/MyScripts/ContentTabScript.js" type="text/javascript"></script>
+	<script src="~/Scripts/jquery.signalR-2.4.0.js"></script>
+	<script src="signalr/hubs"></script>
+	@*<script src="~/signalr/js"></script>*@
+	@RenderSection("scripts", required: false)
+</body>
+</html>

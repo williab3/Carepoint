@@ -1,0 +1,45 @@
+﻿@using Carepoint.Custom_Helpers
+@model Carepoint.ViewModel.AppsViewModel
+<table class="table">
+	<thead>
+		<tr>
+			<th style="width: 10%; text-align:center">App</th>
+			<th>Decription</th>
+			<th style="width: 10%" class="text-center">Favorites</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (Carepoint.Models.PasbaApp app in Model.Apps)
+		{
+			<tr data-bendo-id="@app.Id">
+				<td>
+					<div>
+						<div class="text-center">
+							<a href="#"><img src="@app.Icon" height="40" /></a>
+						</div>
+						<div class="app-sub-title">@app.PasbaAppName</div>
+					</div>
+				</td>
+				<td>Description</td>
+				<td style="vertical-align:middle">
+					@if (app.IsFavorite)
+					{
+
+						@BendoHtml.Checkbox("true", app.Id)
+					}
+					else
+					{
+						@BendoHtml.Checkbox("",app.Id)
+					}
+
+
+				</td>
+			</tr>
+		}
+	</tbody>
+
+</table>
+<script type="text/javascript">
+	$.getScript("/Scripts/MyScripts/AllPasbaApps.js", function () {
+	});
+	</script>

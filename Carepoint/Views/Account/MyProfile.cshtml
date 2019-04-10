@@ -1,0 +1,109 @@
+﻿@model Carepoint.ViewModel.ProfileViewModel
+@{
+	ViewBag.Title = "MyProfile";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2>My Profile</h2>
+
+@using (Html.BeginForm("MyProfile", "Account",FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+	<div class="col-sm-6">
+
+		@Html.AntiForgeryToken()
+		<div class="form-group">
+			@Html.LabelFor(m => m.FirstName, new { @class = "carePoint-control" })
+			@Html.Label(Model.FirstName, new { @class = "form-control carePoint-control" })
+			@Html.HiddenFor(m => m.FirstName,new { @readonly="true"})
+		</div>
+		<div class="form-group">
+			@Html.LabelFor(m => m.LastName, new { @class = "carePoint-control" })
+			@Html.Label(Model.LastName, new { @class = "form-control carePoint-control" })
+			@Html.HiddenFor(m => m.LastName, new { @readonly = "true" })
+		</div>
+		<div class="form-group">
+			@Html.LabelFor(m => m.CarePointName, new { @class = "carePoint-control " })
+			@if (Model.IsCarepointNameValid)
+			{
+				@Html.Label(Model.CarePointName, new { @class = "form-control carePoint-control CarepointName", id = "CarepointName" });
+			}
+			else
+			{
+				@Html.Label("Please update your User ID", new { @class = "form-control carePoint-control text-warning CarepointName", id = "CarepointName" });
+			}
+			@Html.TextBoxFor(m => m.CarePointName, new { @class = "form-control carePoint-control CarepointName", style = "display:none", placeholder = "User ID" })
+			<button id="editCarePointName-btn" type="button" class="btn-primary"><span class="glyphicon glyphicon-pencil"></span></button>
+			<p>@Html.ValidationMessageFor(m => m.CarePointName)</p>
+		</div>
+		<div class="form-group">
+			@Html.LabelFor(m => m.PhoneNumber, new { @class = "carePoint-control" })
+			@if (Model.IsPhoneNumberValid)
+			{
+				@Html.Label(Model.PhoneNumber, new { @class = "form-control carePoint-control PhoneNumber", id = "PhoneNumber" });
+			}
+			else
+			{
+				@Html.Label("Please update your Phone number", new { @class = "form-control carePoint-control text-warning PhoneNumber", id = "PhoneNumber" });
+			}
+			@Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control carePoint-control PhoneNumber", style = "display:none", placeholder = "Phone Number" })
+			<button id="editPhone-btn" type="button" class="btn-primary"><span class="glyphicon glyphicon-pencil"></span></button>
+			<p>@Html.ValidationMessageFor(m => m.PhoneNumber)</p>
+		</div>
+		<div class="form-group">
+			@Html.LabelFor(m => m.DSNPhone, new { @class = "carePoint-control" })
+			@if (Model.IsDsnPhoneValid)
+			{
+				@Html.Label(Model.DSNPhone, new { @class = "form-control carePoint-control DSNPhone", id = "DSNPhone" });
+			}
+			else
+			{
+				@Html.Label("Please update your DNS Phone number", new { @class = "form-control carePoint-control text-warning DSNPhone", id = "DSNPhone" });
+			}
+			@Html.TextBoxFor(m => m.DSNPhone, new { @class = "form-control carePoint-control DSNPhone", style = "display:none", placeholder = "DSN Phone Number" })
+			<button type="button" class="btn-primary"><span id="editDSNPhone-btn" class="glyphicon glyphicon-pencil"></span></button>
+			<p>@Html.ValidationMessageFor(m => m.DSNPhone)</p>
+
+			@Html.HiddenFor(m => m.UserId)
+		</div>
+		<div style="width:80%; display:flex; justify-content:flex-end">
+			<button type="submit" class="btn btn-primary">Save</button>
+		</div>
+	</div>
+	<div class="col-sm-6">
+		<div class="media">
+			<div class="media-left">
+				<a href="#">
+					@if (Model.ProfilePicUrl == null)
+					{
+						<img id="profilePic" class="media-object btn btn-primary" src="~/Content/Images/blank person.png" height="150">
+					}
+					else
+					{
+						<img id="profilePic" class="media-object btn btn-primary" src="@Model.ProfilePicUrl" height="150">
+					}
+					<p id="fileWarning" class="text-danger" style="display:none">Please select an image file with a .gif, .png, .jpg or a .jpeg file extention</p>
+				</a>
+			</div>
+			<div class="media-body">
+				<h4 class="media-heading">About Me <button id="editBio-btn" type="button" class="btn-primary"><span class="glyphicon glyphicon-pencil"></span></button> </h4>
+				@if (Model.IsBioValid)
+				{
+					<p id="bioMessage">@Model.Bio</p>
+				}
+				else
+				{
+					<p id="bioMessage">Tell us a little about yourself</p>
+				}
+				@Html.TextAreaFor(m => m.Bio, new { @class = "form-control", style = "display:none; height:115px", placeholder = "Tell us a little about yourself" })
+				<p>@Html.ValidationMessageFor(m => m.Bio)</p>
+
+			</div>
+		</div>
+	</div>
+	<input id="fileUploader" name="PicFile" type="file" accept=".png,.jpg,.jpeg,gif" style="position:absolute; opacity:0; display:none;" />
+
+}
+@section scripts{
+	<script src="~/Scripts/MyScripts/MyProfile.js" type="text/javascript"></script>
+}

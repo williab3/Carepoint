@@ -1,0 +1,90 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.form-control{
+    padding: 0px;
+    height: 35px;
+}
+
+.input-validation-error{
+    border: solid red 2px;
+}
+
+table{
+    background-color:whitesmoke;
+    color:#303030;
+    border-radius:5px;
+}
+
+tbody> tr {
+    border-top: 1px solid #B2B3B2;
+}
+.app-sub-title{
+    text-align:center;
+    font-size:small;
+    color: #00BC8C;
+    font-weight:bold;
+}
+.chatBox {
+    display: inline-block;
+    /*vertical-align: bottom;*/
+    color: #00BC8C;
+    position: fixed;
+    bottom: 0px;
+    width: 265px;
+    /*height: 190px;*/
+    right: 20px
+}
+label.form-control.carePoint-control, input.form-control.carePoint-control {
+    padding: 5px 0px 0px 5px;
+    width: 80%;
+    display: inline-block;
+}
+label.carePoint-control{
+    display:block;
+}
+label.form-control.carePoint-control.text-warning{
+    font-weight: bold;
+}
+
+/*Test Stuff*/
+.grower {
+    height: 0px;
+    background-color: blueviolet;
+    -moz-transition: height .5s;
+    -o-transition: height .5s;
+    -webkit-transition: height .5s;
+    transition: height .5s;
+    overflow:hidden;
+}
+.grow-large{
+    height: 300px;
+}
+
+
+
+
+
+

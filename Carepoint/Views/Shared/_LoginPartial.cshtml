@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNet.Identity
+@model Carepoint.Models.ViewModelBase
+
+
+
+@if (Request.IsAuthenticated)
+{
+	using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+	{
+		@Html.AntiForgeryToken()
+		<ul class="nav navbar-nav navbar-right">
+			<li>
+				@Html.ActionLink("Hello " + Model.CarePointName + " !", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+			</li>
+			<li>
+				<a href="@Url.Action("MyProfile","Account",new {userId = Model.UserId })" style="padding:15px 0px 15px 0px" class=" btn-primary"><span class="glyphicon glyphicon-user" style="font-size:x-large"></span></a>
+			</li>
+			<li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+		</ul>
+	}
+}
+else
+{
+	<ul class="nav navbar-nav navbar-right">
+		<li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+		<li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+	</ul>
+}

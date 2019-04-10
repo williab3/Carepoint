@@ -1,0 +1,52 @@
+﻿@model List<Carepoint.ViewModel.Friend>
+
+<div id="messages" class="chatBox">
+	@if (Request.IsAuthenticated)
+	{
+		<div id="communicator"></div>
+
+		@*<div id="incoming-messages" class="incoming-messages">
+			<div class="input-group message-group">
+				<input id="userMessage" type="text" class="form-control" placeholder="Placecholder">
+				<span id="btn-sendChat" class=" glyphicon glyphicon-send input-group-addon btn-primary" aria-hidden="true"></span>
+			</div>
+		</div>*@
+	}
+	else
+	{
+		@Carepoint.Custom_Helpers.MyHtml.Button("Instant Message", Carepoint.Custom_Helpers.ButtonType.primary, "Login", "Account")
+	}
+</div>
+<script type="text/javascript">
+	var friends = @Html.Raw(Json.Encode(Model))
+	$(document).ready(function (args) {
+	//	$("#communicator").bendoSelect({
+	//		placeholder: "Friends",
+	//		icon: "&#xe008;",
+	//		style: {
+	//			bootstrapTheme: {
+	//				fileUrl: "/Content/Darkly3.3.7.css",
+	//				useInverseTheme: true
+	//			}
+	//		},
+	//		direction: "up",
+	//		width: "240px",
+	//		items: {
+	//			dataArray: friends,
+	//			textField: "FirstName",
+	//			valueField:"Id"
+	//		}
+	//	});
+			$("#communicator").bendoMessanger({
+				placeholder: "Friends",
+				contactList: {
+					textField: "FirstName",
+					valueField: "Id",
+					dataArray: friends
+				},
+			});
+	});
+</script>
+
+
+

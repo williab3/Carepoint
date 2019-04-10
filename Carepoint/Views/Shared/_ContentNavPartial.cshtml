@@ -1,0 +1,16 @@
+﻿
+<ul id="pasbaTabs" class="nav nav-tabs" style="margin-top: 5px">
+	<li role="presentation" class="active">@Ajax.ActionLink("My Apps", "MyPasbaApps", "Home", new AjaxOptions() {
+										  HttpMethod = "POST", UpdateTargetId = "tabContent", InsertionMode = InsertionMode.Replace}) </li>
+	<li role="presentation">@Ajax.ActionLink("PASBA Apps", "AllPasbaApps", new AjaxOptions() {
+						   HttpMethod = "POST",
+						   UpdateTargetId = "tabContent",
+						   InsertionMode = InsertionMode.Replace
+					   })</li>
+	<li role="presentation"><a id="tabsDMRPC" href="#">DMRPC</a></li>
+	<li role="presentation"><a id="tabsHIM" href="#">HIM</a></li>
+	<li role="presentation"><a id="tabsDataQuality" href="#">Data Quality</a></li>
+	<li role="presentation"><a id="tabsDataAnalysis" href="#">Data Analysis</a></li>
+</ul>
+
+

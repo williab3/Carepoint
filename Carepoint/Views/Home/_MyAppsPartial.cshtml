@@ -1,0 +1,48 @@
+﻿@using Carepoint.Models
+@model Carepoint.ViewModel.AppsViewModel
+<h3>My Apps</h3>
+<div id="myAppsGrid"></div>
+@{
+	List<string> columns = new List<string>() { "App", "Description", "Restricted" };
+	WebGrid mvcGrid = new WebGrid(source: Model.Apps, defaultSort: null, rowsPerPage: 10, canPage: true);
+}
+<div id="otherGrid">
+	@mvcGrid.GetHtml(htmlAttributes: new
+{
+	@class = "table table-hover"
+}, columns: mvcGrid.Columns(
+	mvcGrid.Column(columnName: "PasbaAppName", header: "App", format: @<img src="@item.Icon" height="40"/>)))
+</div>
+
+<script type="text/javascript">
+	var gridData = @Html.Raw(Json.Encode(Model.Apps));
+	console.log(gridData);
+	$("#myAppsGrid").bendoGrid({
+		columns: [
+			{title: "Apps", dataField: "PasbaAppName", width: 100, format: "<div class='text-center'><img id='%#data.Id#%' src='%#data.Icon#%' height='40'/><div>%#data.PasbaAppName#%</div></div>"},
+			{ title: "Description", dataField: "Description" },
+		],
+		style: {
+			bootstrapTheme: {
+				fileUrl: "/Content/Darkly3.3.7.css",
+				useInverseTheme: true
+			},
+		},
+		read: {
+			data: gridData,
+			idField: "Id"
+		},
+		rowClick: {
+			itemClick: [
+				{ id: 1, field: "PasbaAppName", action: function () { return '@Ajax.ActionLink("%#template#%", "Index", "CHD", new AjaxOptions() {
+																	  UpdateTargetId = "tabContent",
+																	  InsertionMode = InsertionMode.Replace
+																  })' } },
+				{ id: 2, field: "PasbaAppName", action: function () { return '@Ajax.ActionLink("%#template#%","CM", "CoderManager", new AjaxOptions {
+																			 UpdateTargetId = "tabContent",
+																			 InsertionMode = InsertionMode.Replace })' } }
+			]
+		}
+	});
+
+</script>
