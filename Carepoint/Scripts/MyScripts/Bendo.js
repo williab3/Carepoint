@@ -285,9 +285,17 @@ $.fn.bendoMessanger = function (args) {
     let defaultSettings = $.extend(true, {
         placeholder: "Placeholder",
     }, args);
+
+    //Open Chat connection
+    if (defaultSettings.openConnection !== null) {
+        defaultSettings.openConnection();
+    }
+
     this.addClass("incoming-messages");
     var contactList = $("<div>").addClass("message-selector").attr("id", "bendo-messengerSelect");
     let bendoMessenger = this;
+
+    //Create the friends list
     contactList.bendoSelect({
         icon: "&#xe008;",
         direction: "up",

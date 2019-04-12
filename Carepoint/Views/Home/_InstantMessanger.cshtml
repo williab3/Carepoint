@@ -44,6 +44,16 @@
 					valueField: "Id",
 					dataArray: friends
 				},
+				openConnection: function () {
+					$.connection.hub.start().done(function () {
+						console.log("Connected bro!!");
+					}).fail(function () {
+						alert("Unable to connect to SignalR");
+					})
+				},
+				sendMassege: function () {
+
+				}
 			});
 	});
 </script>
