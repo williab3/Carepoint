@@ -42,16 +42,16 @@
 		</div>
 		<div id="right-side" class="col-sm-2" style="position:static">
 			@{ Html.RenderAction("_InstantMessanger", "Home");}
-			
+
 
 		</div>
 	</div>
+	<script src="~/Scripts/jquery.signalR-2.4.0.js"></script>
+	<script src="signalr/hubs"></script>
 	@Scripts.Render("/Scripts/MyScripts/Site.js")
 	<link href="~/Content/My CSS/Bendo.css" rel="stylesheet" />
 	<script src="~/Scripts/MyScripts/Bendo.js"></script>
 	<script src="~/Scripts/MyScripts/ContentTabScript.js" type="text/javascript"></script>
-	<script src="~/Scripts/jquery.signalR-2.4.0.js"></script>
-	<script src="signalr/hubs"></script>
 	@*<script src="~/signalr/js"></script>*@
 	@RenderSection("scripts", required: false)
 </body>
