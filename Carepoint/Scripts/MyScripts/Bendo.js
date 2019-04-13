@@ -229,6 +229,7 @@ $.fn.bendoSelect = function (args) {
 
     let body = $("<div>").attr("id", defaultSettings.id + "-selectBody").width(defaultSettings.width).css("position", "relative");
     let selectPlacholder = $("<p>").text(defaultSettings.placeholder);
+    selectPlacholder.attr("id", defaultSettings.id + "-bendoSelectedItem");
     body.prepend(selectPlacholder);
     selectContainer.append(body);
     let chevron = $("<span>").addClass("chevron").html("&#xe114;");
@@ -249,6 +250,7 @@ $.fn.bendoSelect = function (args) {
         var contents = $("<p>").text(item[defaultSettings.items.textField]);
         listItem.click(function (args) {
             selectPlacholder.text(contents.text());
+            selectPlacholder.attr("data-selected-value", listItem.attr("data-select-value"));
             mySelect.focusout();
         });
         listItem.html(contents);
@@ -280,16 +282,11 @@ $.fn.bendoSelect = function (args) {
 
 };
 
-//Bendo Instant Messenger
-$.fn.bendoMessanger = function (args) {
+//Bendo Instant Messenger for .NET SignalR
+$.fn.bendoNetMessenger = function (args) {
     let defaultSettings = $.extend(true, {
         placeholder: "Placeholder",
     }, args);
-
-    //Open Chat connection
-    if (defaultSettings.openConnection !== null) {
-        defaultSettings.openConnection();
-    }
 
     this.addClass("incoming-messages");
     var contactList = $("<div>").addClass("message-selector").attr("id", "bendo-messengerSelect");
@@ -327,10 +324,26 @@ $.fn.bendoMessanger = function (args) {
             sendButton.click();
         }
     });
-    sendButton.click(function (args) {
-        var iM = $("<p>").text("Ben");
-        messegeBox.append(iM);
-    });
     messageInputContainer.append(sendButton);
     this.append(messageInputContainer);
+
+    //Open Chat connection
+    if (defaultSettings.proxyHub !== null) {
+        //Define a function for the server to call to push a message to the client
+        defaultSettings.proxyHub.client.broadcastMessage = function (userId, messege) {
+            let incomingMessage = $("<p>").text(messege);
+            messegeBox.append(incomingMessage);
+        };
+        $.connection.hub.start().done(function () {
+            var recipient = $("#bendo-messengerSelect-bendoSelectedItem");
+            sendButton.click(function (args) {
+                //Call to server when the send button is clicked
+                defaultSettings.proxyHub.server.send(recipient.attr("data-selected-value"), messageTexbox.val());
+            });
+            console.log("Connected bro!!");
+        }).fail(function () {
+            alert("Unable to connect to SignalR");
+        });
+    }
+
 };

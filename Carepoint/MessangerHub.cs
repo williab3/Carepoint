@@ -12,9 +12,9 @@ namespace Carepoint
         {
             Clients.All.hello();
         }
-        public void Send(string name, string message)
+        public void Send(string userId, string message)
         {
-            Clients.All.broadcastMessage(name, message);
+            Clients.All.broadcastMessage(userId, message);
         }
     }
 }
