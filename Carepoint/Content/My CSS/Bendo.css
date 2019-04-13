@@ -111,14 +111,13 @@
     min-height: 160px;
 }
 .messageBox{
-
+    margin-bottom: 30px;
 }
 .send-btn {
 }
 
     .incoming-messages > div {
         min-width: 200px;
-        max-height: 30px;
     }
 
 .message-group > input {
