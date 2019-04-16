@@ -6,22 +6,24 @@ using Carepoint.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.SignalR;
 using System.Data.Entity;
+using System.Threading.Tasks;
 
 namespace Carepoint
 {
     public class MessangerHub : Hub
     {
-        public void Hello()
-        {
-            Clients.All.hello();
-        }
+        public ApplicationDbContext DbContext { get; set; } = new ApplicationDbContext();
         public void Send(string userId, string message)
         {
-            ApplicationDbContext dbContext = new ApplicationDbContext();
-            IdentityUser  _user = dbContext.Users.SingleOrDefault(u => u.Id == userId);
+            IdentityUser  _user = DbContext.Users.SingleOrDefault(u => u.Id == userId);
             Clients.User(_user.UserName).send(message);
             //Clients.All.broadcastMessage(userId, message);
             Clients.User(_user.UserName).broadcastMessage(userId, message);
+        }
+
+        public override Task OnConnected()
+        {
+            return base.OnConnected();
         }
     }
 }

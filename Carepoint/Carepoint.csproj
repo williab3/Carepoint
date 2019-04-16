@@ -280,12 +280,17 @@
     <Compile Include="Migrations\201904161425599_updateInstantMessge-w-ConnectionId.Designer.cs">
       <DependentUpon>201904161425599_updateInstantMessge-w-ConnectionId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904161812578_addMessegeConnectionTable.cs" />
+    <Compile Include="Migrations\201904161812578_addMessegeConnectionTable.Designer.cs">
+      <DependentUpon>201904161812578_addMessegeConnectionTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CodingInquiry.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\InstantMessage.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MessegeConnections.cs" />
     <Compile Include="Models\PasbaApp.cs" />
     <Compile Include="Models\ViewModelBase.cs" />
     <Compile Include="MyWebform.aspx.cs">
@@ -490,6 +495,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904161425599_updateInstantMessge-w-ConnectionId.resx">
       <DependentUpon>201904161425599_updateInstantMessge-w-ConnectionId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904161812578_addMessegeConnectionTable.resx">
+      <DependentUpon>201904161812578_addMessegeConnectionTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

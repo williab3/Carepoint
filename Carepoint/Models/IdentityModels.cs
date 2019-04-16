@@ -70,6 +70,7 @@ namespace Carepoint.Models
         public DbSet<CodingInquiry> CodingInquiries { get; set; }
         public DbSet<PasbaApp> PasbaApps { get; set; }
         public DbSet<InstantMessage> InstantMessages { get; set; }
+        public DbSet<MessegeConnection> MessegeConnections { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
