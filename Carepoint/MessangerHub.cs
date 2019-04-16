@@ -23,6 +23,7 @@ namespace Carepoint
 
         public override Task OnConnected()
         {
+            
             return base.OnConnected();
         }
     }
