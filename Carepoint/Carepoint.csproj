@@ -276,6 +276,10 @@
     <Compile Include="Migrations\201903302254049_UpdateUserIdentity_CarePointNameValidation.Designer.cs">
       <DependentUpon>201903302254049_UpdateUserIdentity_CarePointNameValidation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904161425599_updateInstantMessge-w-ConnectionId.cs" />
+    <Compile Include="Migrations\201904161425599_updateInstantMessge-w-ConnectionId.Designer.cs">
+      <DependentUpon>201904161425599_updateInstantMessge-w-ConnectionId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CodingInquiry.cs" />
@@ -483,6 +487,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903302254049_UpdateUserIdentity_CarePointNameValidation.resx">
       <DependentUpon>201903302254049_UpdateUserIdentity_CarePointNameValidation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904161425599_updateInstantMessge-w-ConnectionId.resx">
+      <DependentUpon>201904161425599_updateInstantMessge-w-ConnectionId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -24,6 +24,7 @@ namespace Carepoint.Models
             DSNPhone = _user.DSNPhone;
             Bio = _user.Bio;
             ProfilePic = _user.ProfilePic;
+            
         }
         public ApplicationUser()
         {

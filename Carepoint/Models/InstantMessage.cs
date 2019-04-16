@@ -13,5 +13,6 @@ namespace Carepoint.Models
         public DateTime TimeStamp { get; set; }
         public string Message { get; set; }
         public bool HasBeenRead { get; set; }
+        public string ConnectionId { get; set; }
     }
 }

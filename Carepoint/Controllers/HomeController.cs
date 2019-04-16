@@ -110,7 +110,7 @@ namespace Carepoint.Controllers
                 };
                 friends.Add(friend);
             }
-            friends = friends.Where(f => f.Id != this.User.Identity.GetUserId()).ToList();
+            friends = friends.Where(f => f.Id != User.Identity.GetUserId()).ToList();
             return PartialView(friends);
         }
     }
