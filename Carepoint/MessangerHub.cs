@@ -25,7 +25,7 @@ namespace Carepoint
         {
             
             string userName = Context.User.Identity.Name;
-            var user = DbContext.Users.SingleOrDefault(u => u.UserName == userName);
+            var user = DbContext.Users.Include(c => c.UserConnections).SingleOrDefault(u => u.UserName == userName);
             if (user != null)
             {
                 MessegeConnection connection = new MessegeConnection()
@@ -43,7 +43,9 @@ namespace Carepoint
 
         public override Task OnDisconnected(bool stopCalled)
         {
-
+            MessegeConnection disconnect = DbContext.MessegeConnections.SingleOrDefault(c => c.ConnectionId == Context.ConnectionId);
+            DbContext.MessegeConnections.Remove(disconnect);
+            DbContext.SaveChanges();
             return base.OnDisconnected(stopCalled);
         }
     }
