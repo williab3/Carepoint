@@ -31,6 +31,8 @@ namespace Carepoint.Models
 
         }
 
+        public List<MessegeConnection> UserConnections { get; set; }
+
         [Display(Name = "First Name")]
         [Required]
         [StringLength(15)]

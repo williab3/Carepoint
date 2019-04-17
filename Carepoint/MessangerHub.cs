@@ -24,7 +24,27 @@ namespace Carepoint
         public override Task OnConnected()
         {
             
+            string userName = Context.User.Identity.Name;
+            var user = DbContext.Users.SingleOrDefault(u => u.UserName == userName);
+            if (user != null)
+            {
+                MessegeConnection connection = new MessegeConnection()
+                {
+                    ConnectionId = Context.ConnectionId,
+                    UserId = user.Id,
+                    IsConnectionActive = true
+                };
+                user.UserConnections.Add(connection);
+                DbContext.SaveChanges(); 
+            }
+
             return base.OnConnected();
+        }
+
+        public override Task OnDisconnected(bool stopCalled)
+        {
+
+            return base.OnDisconnected(stopCalled);
         }
     }
 }

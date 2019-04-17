@@ -288,6 +288,10 @@
     <Compile Include="Migrations\201904161821201_updateMessesConnection-w-IsConnectionActive.Designer.cs">
       <DependentUpon>201904161821201_updateMessesConnection-w-IsConnectionActive.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904161829081_updateApplicationUser-w-UserConnections.cs" />
+    <Compile Include="Migrations\201904161829081_updateApplicationUser-w-UserConnections.Designer.cs">
+      <DependentUpon>201904161829081_updateApplicationUser-w-UserConnections.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CodingInquiry.cs" />
@@ -505,6 +509,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904161821201_updateMessesConnection-w-IsConnectionActive.resx">
       <DependentUpon>201904161821201_updateMessesConnection-w-IsConnectionActive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904161829081_updateApplicationUser-w-UserConnections.resx">
+      <DependentUpon>201904161829081_updateApplicationUser-w-UserConnections.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -99,6 +99,7 @@ namespace Carepoint.Controllers
         [ChildActionOnly]
         public ActionResult _InstantMessanger()
         {
+            var testUser = User.Identity.Name;
             List<Friend> friends = new List<Friend>();
             foreach (ApplicationUser user in dbContext.Users)
             {
