@@ -304,6 +304,10 @@
     <Compile Include="Migrations\201904181216346_updateApplicationUser-w-addInstantMesseges.Designer.cs">
       <DependentUpon>201904181216346_updateApplicationUser-w-addInstantMesseges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904181649469_movedInstantMessagesfromapplicationUserToFriend.cs" />
+    <Compile Include="Migrations\201904181649469_movedInstantMessagesfromapplicationUserToFriend.Designer.cs">
+      <DependentUpon>201904181649469_movedInstantMessagesfromapplicationUserToFriend.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CodingInquiry.cs" />
@@ -533,6 +537,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904181216346_updateApplicationUser-w-addInstantMesseges.resx">
       <DependentUpon>201904181216346_updateApplicationUser-w-addInstantMesseges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904181649469_movedInstantMessagesfromapplicationUserToFriend.resx">
+      <DependentUpon>201904181649469_movedInstantMessagesfromapplicationUserToFriend.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

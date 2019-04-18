@@ -32,7 +32,7 @@ namespace Carepoint.Models
         }
 
         public List<MessegeConnection> UserConnections { get; set; }
-        public List<InstantMessage> InstantMessages { get; set; }
+        public List<ApplicationUser> Friends { get; set; }
 
         [Display(Name = "First Name")]
         [Required]
@@ -57,7 +57,6 @@ namespace Carepoint.Models
 
         public string Bio { get; set; }
 
-        public List<ApplicationUser> Friends { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
