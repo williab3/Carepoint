@@ -42,13 +42,14 @@
 				contactList: {
 					textField: "FirstName",
 					valueField: "Id",
-					dataArray: friends
+					dataArray: friends,
+					hasMesseges: "HasMesseges"
 				},
 				openConnection: function () {
 					
 				},
 				proxyHub: $.connection.messangerHub,
-				
+				clientFunction: "broadcastMessage",
 			});
 	});
 </script>

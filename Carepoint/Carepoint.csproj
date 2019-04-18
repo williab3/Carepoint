@@ -292,6 +292,18 @@
     <Compile Include="Migrations\201904161829081_updateApplicationUser-w-UserConnections.Designer.cs">
       <DependentUpon>201904161829081_updateApplicationUser-w-UserConnections.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904170326011_updateUserConnections-w-addUserName.cs" />
+    <Compile Include="Migrations\201904170326011_updateUserConnections-w-addUserName.Designer.cs">
+      <DependentUpon>201904170326011_updateUserConnections-w-addUserName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904170331247_updateUserConnections-w-addConnectionTime.cs" />
+    <Compile Include="Migrations\201904170331247_updateUserConnections-w-addConnectionTime.Designer.cs">
+      <DependentUpon>201904170331247_updateUserConnections-w-addConnectionTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904181216346_updateApplicationUser-w-addInstantMesseges.cs" />
+    <Compile Include="Migrations\201904181216346_updateApplicationUser-w-addInstantMesseges.Designer.cs">
+      <DependentUpon>201904181216346_updateApplicationUser-w-addInstantMesseges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CodingInquiry.cs" />
@@ -512,6 +524,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904161829081_updateApplicationUser-w-UserConnections.resx">
       <DependentUpon>201904161829081_updateApplicationUser-w-UserConnections.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904170326011_updateUserConnections-w-addUserName.resx">
+      <DependentUpon>201904170326011_updateUserConnections-w-addUserName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904170331247_updateUserConnections-w-addConnectionTime.resx">
+      <DependentUpon>201904170331247_updateUserConnections-w-addConnectionTime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904181216346_updateApplicationUser-w-addInstantMesseges.resx">
+      <DependentUpon>201904181216346_updateApplicationUser-w-addInstantMesseges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

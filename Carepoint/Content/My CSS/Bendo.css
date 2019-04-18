@@ -81,7 +81,7 @@
     font-family:glyph-text
 }
 /*Bendo Instant Messanger*/
-.incoming-messages {
+.messages {
     background-color: rgb(205, 205, 203);
     height: 250px;
     overflow-y: auto;
@@ -116,12 +116,20 @@
 .send-btn {
 }
 
-    .incoming-messages > div {
-        min-width: 200px;
+    .messages > div {
+        width: 100%
     }
 
 .message-group > input {
     height: 39px;
+}
+.outgoing-message{
+    text-align: right;
+    margin-right: 5px;
+}
+.incoming-message {
+    color: #00BC8C;
+    margin-left: 5px;
 }
 
 .message-group > span {

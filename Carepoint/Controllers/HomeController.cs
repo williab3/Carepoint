@@ -107,7 +107,6 @@ namespace Carepoint.Controllers
                 {
                     Id = user.Id,
                     FirstName = user.FirstName,
-                    UserId = user.UserName
                 };
                 friends.Add(friend);
             }

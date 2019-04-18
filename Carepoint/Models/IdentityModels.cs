@@ -32,6 +32,7 @@ namespace Carepoint.Models
         }
 
         public List<MessegeConnection> UserConnections { get; set; }
+        public List<InstantMessage> InstantMessages { get; set; }
 
         [Display(Name = "First Name")]
         [Required]

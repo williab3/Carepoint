@@ -288,7 +288,7 @@ $.fn.bendoNetMessenger = function (args) {
         placeholder: "Placeholder",
     }, args);
 
-    this.addClass("incoming-messages");
+    this.addClass("messages");
     var contactList = $("<div>").addClass("message-selector").attr("id", "bendo-messengerSelect");
     let bendoMessenger = this;
 
@@ -330,8 +330,8 @@ $.fn.bendoNetMessenger = function (args) {
     //Open Chat connection
     if (defaultSettings.proxyHub !== null) {
         //Define a function for the server to call to push a message to the client
-        defaultSettings.proxyHub.client.broadcastMessage = function (userId, messege) {
-            let incomingMessage = $("<p>").text(messege);
+        defaultSettings.proxyHub.client.broadcastMessage = function (messege) {
+            let incomingMessage = $("<p>").addClass("incoming-message").text(messege);
             messegeBox.append(incomingMessage);
         };
         $.connection.hub.start().done(function () {
@@ -339,6 +339,9 @@ $.fn.bendoNetMessenger = function (args) {
             sendButton.click(function (args) {
                 //Call to server when the send button is clicked
                 defaultSettings.proxyHub.server.send(recipient.attr("data-selected-value"), messageTexbox.val());
+                var outgoingMessege = $("<p>").addClass("outgoing-message").addClass("text-primary").text(messageTexbox.val());
+                messegeBox.append(outgoingMessege);
+                messageTexbox.val(" ");
             });
             console.log("Connected bro!!");
         }).fail(function () {

@@ -11,5 +11,7 @@ namespace Carepoint.Models
         public string ConnectionId { get; set; }
         public string UserId { get; set; }
         public bool IsConnectionActive { get; set; }
+        public string UserName { get; set; }
+        public DateTime ConnectionTime { get; set; }
     }
 }
