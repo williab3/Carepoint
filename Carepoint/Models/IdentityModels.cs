@@ -73,7 +73,7 @@ namespace Carepoint.Models
         public DbSet<PasbaApp> PasbaApps { get; set; }
         public DbSet<InstantMessage> InstantMessages { get; set; }
         public DbSet<MessegeConnection> MessegeConnections { get; set; }
-
+        public DbSet<Friend> Friends { get; set; }
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

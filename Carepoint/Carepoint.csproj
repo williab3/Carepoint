@@ -308,9 +308,18 @@
     <Compile Include="Migrations\201904181649469_movedInstantMessagesfromapplicationUserToFriend.Designer.cs">
       <DependentUpon>201904181649469_movedInstantMessagesfromapplicationUserToFriend.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904181707304_addedFriendsTable.cs" />
+    <Compile Include="Migrations\201904181707304_addedFriendsTable.Designer.cs">
+      <DependentUpon>201904181707304_addedFriendsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904191849305_updateApplicationUser-w-changedFriendTypeFromApplicationUserToFriend.cs" />
+    <Compile Include="Migrations\201904191849305_updateApplicationUser-w-changedFriendTypeFromApplicationUserToFriend.Designer.cs">
+      <DependentUpon>201904191849305_updateApplicationUser-w-changedFriendTypeFromApplicationUserToFriend.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CodingInquiry.cs" />
+    <Compile Include="Models\Friend.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\InstantMessage.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -327,7 +336,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModel\AppsViewModel.cs" />
-    <Compile Include="ViewModel\Friend.cs" />
     <Compile Include="ViewModel\ProfileViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -540,6 +548,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904181649469_movedInstantMessagesfromapplicationUserToFriend.resx">
       <DependentUpon>201904181649469_movedInstantMessagesfromapplicationUserToFriend.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904181707304_addedFriendsTable.resx">
+      <DependentUpon>201904181707304_addedFriendsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904191849305_updateApplicationUser-w-changedFriendTypeFromApplicationUserToFriend.resx">
+      <DependentUpon>201904191849305_updateApplicationUser-w-changedFriendTypeFromApplicationUserToFriend.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,11 +1,10 @@
-﻿using Carepoint.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
-namespace Carepoint.ViewModel
+namespace Carepoint.Models
 {
     public class Friend
     {
@@ -17,13 +16,14 @@ namespace Carepoint.ViewModel
 
 
 
-        public Friend( string friendId, string userId)
+        public Friend(string friendId)
         {
             ApplicationDbContext dbContext = new ApplicationDbContext();
-            ApplicationUser friend = dbContext.Users.SingleOrDefault(f => f.Id == friendId);
+            Friend friend = dbContext.Friends.Include(f => f.InstantMessages).SingleOrDefault(f => f.Id == friendId);
             Id = friend.Id;
             FirstName = friend.FirstName;
-            UserId = friend.Email;
+            UserId = friend.UserId;
+            InstantMessages = friend.InstantMessages;
         }
         public Friend()
         {

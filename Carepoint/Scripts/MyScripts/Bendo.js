@@ -241,16 +241,24 @@ $.fn.bendoSelect = function (args) {
     let optionsContainer = $("<div>");
     let dataItems = $(defaultSettings.items.dataArray);
     dataItems.each(function (index, item) {
+        //Create a selection item
         let listItem = $("<div>").attr("data-select-value", item[defaultSettings.items.valueField]).addClass("bendo-selectItem");
+        //Add hover effect to selection item
         listItem.hover(function (args) {
             listItem.css("background-color", bgColorResult[2]).css("color", textColor[2]);
         }, function (args) {
             listItem.removeAttr("style");
             });
         var contents = $("<p>").text(item[defaultSettings.items.textField]);
+        //Add selection click event
         listItem.click(function (args) {
             selectPlacholder.text(contents.text());
             selectPlacholder.attr("data-selected-value", listItem.attr("data-select-value"));
+            //User defined click event handler
+            if (defaultSettings.selectionChange !== null) {
+                var friendId = selectPlacholder.attr("data-selected-value");
+                defaultSettings.selectionChange(friendId);
+            }
             mySelect.focusout();
         });
         listItem.html(contents);
@@ -308,7 +316,8 @@ $.fn.bendoNetMessenger = function (args) {
             textField: defaultSettings.contactList.textField,
             valueField: defaultSettings.contactList.valueField,
             dataArray: defaultSettings.contactList.dataArray
-        }
+        },
+        selectionChange: defaultSettings.selectionChange
     });
     this.append(contactList);
     var messegeBox = $("<div>").attr("id", "bendo-messegeBox").addClass("messageBox").scrollTop(50);

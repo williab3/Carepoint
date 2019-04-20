@@ -113,5 +113,12 @@ namespace Carepoint.Controllers
             friends = friends.Where(f => f.Id != User.Identity.GetUserId()).ToList();
             return PartialView(friends);
         }
+
+        [HttpPost]
+        public ActionResult Messeges(string friendId)
+        {
+            Friend friend = new Friend(friendId);
+            return Json(friend);
+        }
     }
 }

@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.IO.Compression;
+using System.Data.Entity;
 
 namespace Carepoint.ViewModel
 {
@@ -46,12 +47,14 @@ namespace Carepoint.ViewModel
         public string ProfilePicUrl { get; set; }
         public bool IsBioValid { get; set; }
         public HttpPostedFileBase PicFile { get; set; }
+        public List<Friend> Friends { get; set; }
+
         //private ApplicationUser _user;
         private ApplicationDbContext dbContext = new ApplicationDbContext();
 
         public ProfileViewModel(string userId)
         {
-            ApplicationUser _user = new ApplicationUser(userId);
+            ApplicationUser _user = dbContext.Users.Include(u => u.Friends).SingleOrDefault(u => u.Id == userId);
             FirstName = _user.FirstName;
             LastName = _user.LastName;
             UserId = userId;
@@ -60,6 +63,7 @@ namespace Carepoint.ViewModel
             DSNPhone = _user.DSNPhone;
             Bio = _user.Bio;
             ProfilePicUrl = _user.ProfilePic;
+            Friends = _user.Friends;
 
             if (_user.CarePointName == null)
             {

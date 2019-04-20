@@ -1,4 +1,4 @@
-﻿@model List<Carepoint.ViewModel.Friend>
+﻿@model List<Carepoint.Models.Friend>
 
 <div id="messages" class="chatBox">
 	@if (Request.IsAuthenticated)
@@ -50,6 +50,22 @@
 				},
 				proxyHub: $.connection.messangerHub,
 				clientFunction: "broadcastMessage",
+				selectionChange: function (selectionData) {
+					$.ajax({
+						url: '@Url.Action("Messeges", "Home")',
+						method: "Post",
+						dataType: "json",
+						data: {
+							friendId: selectionData
+						},
+						success: function (data, status, xhr) {
+							console.log(status);
+						},
+						error: function (xhr, status, err) {
+							alert(err);
+						}
+					})
+				},
 			});
 	});
 </script>
