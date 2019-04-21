@@ -48,24 +48,45 @@ namespace Carepoint.ViewModel
         public bool IsBioValid { get; set; }
         public HttpPostedFileBase PicFile { get; set; }
         public List<Friend> Friends { get; set; }
+        public List<ApplicationUser> AllUsers { get; set; }
 
         //private ApplicationUser _user;
-        private ApplicationDbContext dbContext = new ApplicationDbContext();
+        private ApplicationDbContext dbContext;
 
         public ProfileViewModel(string userId)
         {
-            ApplicationUser _user = dbContext.Users.Include(u => u.Friends).SingleOrDefault(u => u.Id == userId);
-            FirstName = _user.FirstName;
-            LastName = _user.LastName;
-            UserId = userId;
-            CarePointName = _user.CarePointName;
-            PhoneNumber = _user.PhoneNumber;
-            DSNPhone = _user.DSNPhone;
-            Bio = _user.Bio;
-            ProfilePicUrl = _user.ProfilePic;
-            Friends = _user.Friends;
+            ApplicationUser user;
+            AllUsers = new List<ApplicationUser>();
+            using (dbContext = new ApplicationDbContext())
+            {
+                user = dbContext.Users.Include(u => u.Friends).SingleOrDefault(u => u.Id == userId);
+                List<ApplicationUser> userData = dbContext.Users.ToList();
+                foreach (ApplicationUser _user in userData)
+                {
+                    if (_user.Id != user.Id)
+                    {
+                        ApplicationUser person = new ApplicationUser()
+                        {
+                            Id = _user.Id,
+                            FirstName = _user.FirstName,
+                            UserName = _user.UserName,
+                        };
+                        AllUsers.Add(person);
+                    }
+                }
 
-            if (_user.CarePointName == null)
+            }
+            FirstName = user.FirstName;
+            LastName = user.LastName;
+            UserId = userId;
+            CarePointName = user.CarePointName;
+            PhoneNumber = user.PhoneNumber;
+            DSNPhone = user.DSNPhone;
+            Bio = user.Bio;
+            ProfilePicUrl = user.ProfilePic;
+            Friends = user.Friends;
+
+            if (user.CarePointName == null)
             {
                 IsCarepointNameValid = false;
             }
@@ -74,7 +95,7 @@ namespace Carepoint.ViewModel
                 IsCarepointNameValid = true;
             }
 
-            if (_user.PhoneNumber == null)
+            if (user.PhoneNumber == null)
             {
                 IsPhoneNumberValid = false;
             }
@@ -83,7 +104,7 @@ namespace Carepoint.ViewModel
                 IsPhoneNumberValid = true;
             }
 
-            if (_user.DSNPhone == null)
+            if (user.DSNPhone == null)
             {
                 IsDsnPhoneValid = false;
             }
@@ -92,7 +113,7 @@ namespace Carepoint.ViewModel
                 IsDsnPhoneValid = true;
             }
 
-            if (_user.Bio == null)
+            if (user.Bio == null)
             {
                 IsBioValid = false;
             }

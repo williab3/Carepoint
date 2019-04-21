@@ -7,13 +7,13 @@ namespace Carepoint.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class updateApplicationUserwchangedFriendTypeFromApplicationUserToFriend : IMigrationMetadata
+    public sealed partial class updateApplicationUserwAddedFriendsTypeFriend : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(updateApplicationUserwchangedFriendTypeFromApplicationUserToFriend));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updateApplicationUserwAddedFriendsTypeFriend));
         
         string IMigrationMetadata.Id
         {
-            get { return "201904191849305_updateApplicationUser-w-changedFriendTypeFromApplicationUserToFriend"; }
+            get { return "201904200113227_updateApplicationUser-w-AddedFriendsTypeFriend"; }
         }
         
         string IMigrationMetadata.Source

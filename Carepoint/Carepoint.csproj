@@ -312,9 +312,13 @@
     <Compile Include="Migrations\201904181707304_addedFriendsTable.Designer.cs">
       <DependentUpon>201904181707304_addedFriendsTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201904191849305_updateApplicationUser-w-changedFriendTypeFromApplicationUserToFriend.cs" />
-    <Compile Include="Migrations\201904191849305_updateApplicationUser-w-changedFriendTypeFromApplicationUserToFriend.Designer.cs">
-      <DependentUpon>201904191849305_updateApplicationUser-w-changedFriendTypeFromApplicationUserToFriend.cs</DependentUpon>
+    <Compile Include="Migrations\201904200112031_updateApplicationUser-w-removeFriends.cs" />
+    <Compile Include="Migrations\201904200112031_updateApplicationUser-w-removeFriends.Designer.cs">
+      <DependentUpon>201904200112031_updateApplicationUser-w-removeFriends.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904200113227_updateApplicationUser-w-AddedFriendsTypeFriend.cs" />
+    <Compile Include="Migrations\201904200113227_updateApplicationUser-w-AddedFriendsTypeFriend.Designer.cs">
+      <DependentUpon>201904200113227_updateApplicationUser-w-AddedFriendsTypeFriend.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -552,8 +556,11 @@
     <EmbeddedResource Include="Migrations\201904181707304_addedFriendsTable.resx">
       <DependentUpon>201904181707304_addedFriendsTable.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904191849305_updateApplicationUser-w-changedFriendTypeFromApplicationUserToFriend.resx">
-      <DependentUpon>201904191849305_updateApplicationUser-w-changedFriendTypeFromApplicationUserToFriend.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904200112031_updateApplicationUser-w-removeFriends.resx">
+      <DependentUpon>201904200112031_updateApplicationUser-w-removeFriends.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904200113227_updateApplicationUser-w-AddedFriendsTypeFriend.resx">
+      <DependentUpon>201904200113227_updateApplicationUser-w-AddedFriendsTypeFriend.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

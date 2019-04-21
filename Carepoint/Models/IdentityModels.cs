@@ -32,7 +32,7 @@ namespace Carepoint.Models
         }
 
         public List<MessegeConnection> UserConnections { get; set; }
-        public List<ApplicationUser> Friends { get; set; }
+        public List<Friend> Friends { get; set; }
 
         [Display(Name = "First Name")]
         [Required]
